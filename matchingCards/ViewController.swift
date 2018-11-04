@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var game = CardMatching()
 
     override func viewDidLoad() {
         super.viewDidLoad()
