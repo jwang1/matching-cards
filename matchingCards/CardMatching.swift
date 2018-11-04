@@ -12,9 +12,9 @@ class CardMatching {
     var cards = [Card]()
     
     init(numberOfCards: Int) {
-        for cardNbr in 1...numberOfCards {
-            let card = Card(identifier: cardNbr)
-            
+        for _ in 1...numberOfCards {
+            let card = Card()
+        
             cards += [card, card]
 
             
