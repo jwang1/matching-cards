@@ -15,9 +15,8 @@ class CardMatching {
         for cardNbr in 1...numberOfCards {
             let card = Card(identifier: cardNbr)
             
-            cards.append(card)
-            // putting a thing into Array, or taking things out of Array, also copies
-            cards.append(card)
+            cards += [card, card]
+
             
         }
     }
