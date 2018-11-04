@@ -15,11 +15,9 @@ class CardMatching {
         for cardNbr in 1...numberOfCards {
             let card = Card(identifier: cardNbr)
             
-            // struct is copied when assigned, different from class
-            let matchingCard = card
-            
             cards.append(card)
-            cards.append(matchingCard)
+            // putting a thing into Array, or taking things out of Array, also copies
+            cards.append(card)
             
         }
     }
