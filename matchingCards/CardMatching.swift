@@ -16,8 +16,8 @@ class CardMatching {
             let card = Card()
         
             cards += [card, card]
-
-            
         }
+        
+        // TODO: shuffle the cards,
     }
 }
