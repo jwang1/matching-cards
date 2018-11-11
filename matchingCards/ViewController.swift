@@ -11,6 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     var game = CardMatching(numberOfCards: 8)
+    
+    @IBOutlet weak var touchCard: UIButton!
+    
+    @IBAction func touchingCard(_ sender: UIButton) {
+        
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
