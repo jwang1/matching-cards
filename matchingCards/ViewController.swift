@@ -12,10 +12,9 @@ class ViewController: UIViewController {
     
     var game = CardMatching(numberOfCards: 8)
     
-    @IBOutlet weak var touchCard: UIButton!
     
-    @IBAction func touchingCard(_ sender: UIButton) {
-        
+    @IBAction func touchCard(_ sender: UIButton) {
+        print("clicked \(sender.currentTitle ?? "testing")")
     }
     
     
