@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+  
 class CardMatching {
     
     var cards = [Card]()
@@ -20,5 +20,19 @@ class CardMatching {
         }
         
         // TODO: shuffle the cards,
+        shuffleCards()
     }
+    
+    func shuffleCards() {
+        
+    }
+    
+    func chooseCard(at index: Int) {
+        if cards[index].isFaceUp {
+            cards[index].isFaceUp = false
+        } else {
+            cards[index].isFaceUp = true
+        }
+    }
+    
 }

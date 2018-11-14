@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var game = CardMatching(numberOfCards: 8)
+    lazy var game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
     
     var flips = 0 {
         didSet {
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇"]
+    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👻"]
     
     
     @IBOutlet var cardButtons: [UIButton]!
@@ -31,13 +31,31 @@ class ViewController: UIViewController {
         flips += 1
         
         if let cardIdx = cardButtons.index(of: sender) {
-            flipCard(withEmoji: emojiChoices[cardIdx], on: sender)
+            // flipCard(withEmoji: emojiChoices[cardIdx], on: sender)
+            
+            game.chooseCard(at: cardIdx)
+            
+            updateViewFromModel()
         } else {
             print("\(sender) not in cardButtons")
         }
-        
-        
-        
+    
+    }
+    
+    func updateViewFromModel() {
+        for idx in cardButtons.indices {
+            let button = cardButtons[idx]
+            
+            let card = game.cards[idx]
+            
+            if card.isFaceUp {
+                button.setTitle(emojiForCard(for: card), for: .normal)
+                button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+            } else {
+                button.setTitle("", for: .normal)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+            }
+        }
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
@@ -48,6 +66,10 @@ class ViewController: UIViewController {
             button.setTitle(emoji, for: .normal)
             button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         }
+    }
+    
+    func emojiForCard(for card: Card) -> String {
+        return "?"
     }
     
     
