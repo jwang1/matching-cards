@@ -59,26 +59,10 @@ class ViewController: UIViewController {
         }
     }
     
-    func flipCard(withEmoji emoji: String, on button: UIButton) {
-        if button.currentTitle == emoji {
-            button.setTitle("", for: .normal)
-            button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        } else {
-            button.setTitle(emoji, for: .normal)
-            button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-        }
-    }
     
     var emojiDict = [Int:String]()
     
     func emoji(for card: Card) -> String {
-        /*
-        if emojiDict[card.id] != nil {
-            return emojiDict[card.id]!
-        } else {
-            return "?"
-        }
-         */
         
         if emojiDict[card.id] == nil {
             emojiDict[card.id] = emojiChoices[card.id]
@@ -98,7 +82,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
