@@ -37,11 +37,30 @@ class CardMatching {
         }
     }
     
+    // tracking the card when only 1 card is facing up
+    var idxOfOneAndOnlyFacedUpCard: Int?
+    
     func chooseCard(at index: Int) {
-        if cards[index].isFaceUp {
-            cards[index].isFaceUp = false
-        } else {
-            cards[index].isFaceUp = true
+        if !cards[index].isMatched {
+            if let matchingIdx = idxOfOneAndOnlyFacedUpCard, matchingIdx > 0 {
+                if cards[matchingIdx].id == cards[index].id {
+                    cards[matchingIdx].isMatched = true
+                    cards[index].isMatched = true
+                    
+                }
+                
+                cards[index].isFaceUp = true
+                idxOfOneAndOnlyFacedUpCard = nil
+                
+            } else {
+                // either no cards or two cards were facing up
+                for flipDownIdx in cards.indices {
+                    cards[flipDownIdx].isFaceUp = false
+                }
+                    
+                cards[index].isFaceUp = true
+                idxOfOneAndOnlyFacedUpCard = index
+            }
         }
     }
     
