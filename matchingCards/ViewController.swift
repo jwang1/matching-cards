@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👻"]
     
     
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
             let card = game.cards[idx]
             
             if card.isFaceUp {
-                button.setTitle(emojiForCard(for: card), for: .normal)
+                button.setTitle(emoji(for: card), for: .normal)
                 button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: .normal)
@@ -68,10 +69,24 @@ class ViewController: UIViewController {
         }
     }
     
-    func emojiForCard(for card: Card) -> String {
-        return "?"
-    }
+    var emojiDict = [Int:String]()
     
+    func emoji(for card: Card) -> String {
+        /*
+        if emojiDict[card.id] != nil {
+            return emojiDict[card.id]!
+        } else {
+            return "?"
+        }
+         */
+        
+        if emojiDict[card.id] == nil {
+            emojiDict[card.id] = emojiChoices[card.id]
+        }
+        
+        // replacing the above
+        return emojiDict[card.id] ?? "?"
+    }
     
 
     override func viewDidLoad() {
