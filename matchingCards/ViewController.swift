@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     }
     
     
-    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👻"]
+    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👩‍👧", "😱", "🤖"]
     
     
     @IBOutlet var cardButtons: [UIButton]!
@@ -32,8 +32,6 @@ class ViewController: UIViewController {
         flips += 1
         
         if let cardIdx = cardButtons.index(of: sender) {
-            // flipCard(withEmoji: emojiChoices[cardIdx], on: sender)
-            
             game.chooseCard(at: cardIdx)
             
             updateViewFromModel()
@@ -72,7 +70,13 @@ class ViewController: UIViewController {
         return emojiDict[card.id] ?? "?"
     }
     
+    
+    
+    
 
+    /**
+     Following not used in this proj
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

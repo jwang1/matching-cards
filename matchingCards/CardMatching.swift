@@ -24,7 +24,17 @@ class CardMatching {
     }
     
     func shuffleCards() {
+        var last = cards.count - 1
         
+        while(last > 0) {
+            // Note the Random number is from the currently # of element
+            // the last is reducing every time; trying to get uniform dist
+            let rand = Int(arc4random_uniform(UInt32(last)))
+            
+            cards.swapAt(last, rand)
+            
+            last -= 1
+        }
     }
     
     func chooseCard(at index: Int) {
