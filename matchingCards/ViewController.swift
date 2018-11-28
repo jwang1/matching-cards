@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let emojis = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👩‍👧", "😱", "🤖"]
+    
     lazy var game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
     
     var flips = 0 {
@@ -19,8 +21,8 @@ class ViewController: UIViewController {
     }
     
     
-    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👩‍👧", "😱", "🤖"]
-    
+    var emojiChoices = [String]()
+    emojiChoices.append(emojis)
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -39,6 +41,14 @@ class ViewController: UIViewController {
             print("\(sender) not in cardButtons")
         }
     
+    }
+    
+    
+    @IBAction func startNewGame(_ sender: UIButton) {
+        game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
+        emojiDict = [Int:String]()
+        
+        updateViewFromModel()
     }
     
     func updateViewFromModel() {
