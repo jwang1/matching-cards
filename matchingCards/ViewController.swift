@@ -21,8 +21,8 @@ class ViewController: UIViewController {
     }
     
     
-    var emojiChoices = [String]()
-    emojiChoices.append(emojis)
+    var emojiChoices = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👩‍👧", "😱", "🤖"]
+    
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -47,6 +47,8 @@ class ViewController: UIViewController {
     @IBAction func startNewGame(_ sender: UIButton) {
         game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
         emojiDict = [Int:String]()
+        
+        emojiChoices += emojis
         
         updateViewFromModel()
     }
