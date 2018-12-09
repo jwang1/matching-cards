@@ -12,7 +12,14 @@ class ViewController: UIViewController {
     
     let emojis = ["👻", "🎃", "🧛‍♂️", "🧙‍♂️", "🧚‍♀️", "🦇", "👩‍👧", "😱", "🤖"]
     
-    lazy var game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = CardMatching(numberOfPairsOfCards: numberOfPairsOfCards)
+    
+    // Property (a read-only property)
+    var numberOfPairsOfCards : Int {
+        get {
+            return (cardButtons.count + 1) / 2
+        }
+    }
     
     var flips = 0 {
         didSet {

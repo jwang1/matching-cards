@@ -12,8 +12,8 @@ class CardMatching {
     
     var cards = [Card]()
     
-    init(numberOfCards: Int) {
-        for _ in 1...numberOfCards {
+    init(numberOfPairsOfCards: Int) {
+        for _ in 1...numberOfPairsOfCards {
             let card = Card()
         
             cards += [card, card]
