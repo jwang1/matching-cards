@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IuP-y8-Gbt">
-                                <rect key="frame" x="16" y="44" width="343" height="288"/>
+                                <rect key="frame" x="16" y="50" width="343" height="288"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gs5-Pf-GwB">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
@@ -172,9 +172,9 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="IuP-y8-Gbt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="12K-SD-dUf"/>
+                            <constraint firstItem="IuP-y8-Gbt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="12K-SD-dUf"/>
                             <constraint firstItem="slW-UI-TcN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5MZ-yz-LtS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IuP-y8-Gbt" secondAttribute="trailing" constant="16" id="9uu-uy-4N3"/>
                             <constraint firstItem="IuP-y8-Gbt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LLl-gh-Vji"/>
