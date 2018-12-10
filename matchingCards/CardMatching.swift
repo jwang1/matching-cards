@@ -37,7 +37,31 @@ class CardMatching {
     }
     
     // tracking the card when only 1 card is facing up
-    var idxOfOneAndOnlyFacedUpCard: Int?
+    var idxOfOneAndOnlyFacedUpCard: Int? {
+        get {
+            var foundIdx: Int?
+            
+            for idx in cards.indices {
+                if cards[idx].isFaceUp {
+                    if foundIdx == nil {  // no cards up
+                        foundIdx = idx
+                    } else {
+                        return nil // already had a card up, and current card with idx is also up; hence, idxOfOneAndOnlyFacedUpCard will be nil
+                    }
+                    
+                    return foundIdx
+                }
+            }
+            
+        }
+        set {
+            for idx in cards.indices {
+                cards[idx].isFaceUp = (idx == newValue)
+            }
+        }
+        
+        
+    }
     
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
