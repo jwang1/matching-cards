@@ -19,7 +19,6 @@ class CardMatching {
             cards += [card, card]
         }
         
-        // TODO: shuffle the cards,
         shuffleCards()
     }
     
