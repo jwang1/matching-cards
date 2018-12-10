@@ -48,19 +48,16 @@ class CardMatching {
                     } else {
                         return nil // already had a card up, and current card with idx is also up; hence, idxOfOneAndOnlyFacedUpCard will be nil
                     }
-                    
-                    return foundIdx
                 }
             }
             
+            return foundIdx
         }
         set {
             for idx in cards.indices {
                 cards[idx].isFaceUp = (idx == newValue)
             }
         }
-        
-        
     }
     
     func chooseCard(at index: Int) {
