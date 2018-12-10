@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func startNewGame(_ sender: UIButton) {
-        game = CardMatching(numberOfCards: (cardButtons.count + 1) / 2)
+        game = CardMatching(numberOfCards: numberOfPairsOfCards)
         emojiDict = [Int:String]()
         
         emojiChoices += emojis
