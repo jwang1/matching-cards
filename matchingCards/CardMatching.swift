@@ -69,16 +69,8 @@ class CardMatching {
                     
                 }
                 
-                cards[index].isFaceUp = true
-                idxOfOneAndOnlyFacedUpCard = nil
-                
+                cards[index].isFaceUp = true                
             } else {
-                // either no cards or two cards were facing up
-                for flipDownIdx in cards.indices {
-                    cards[flipDownIdx].isFaceUp = false
-                }
-                    
-                cards[index].isFaceUp = true
                 idxOfOneAndOnlyFacedUpCard = index
             }
         }
