@@ -10,7 +10,7 @@ import Foundation
   
 struct CardMatching {
     
-    var cards = [Card]()
+    private(set) var cards = [Card]()
     
     init(numberOfPairsOfCards: Int) {
         for _ in 1...numberOfPairsOfCards {
