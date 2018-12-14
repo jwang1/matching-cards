@@ -8,7 +8,7 @@
 
 import Foundation
   
-class CardMatching {
+struct CardMatching {
     
     var cards = [Card]()
     
@@ -22,7 +22,7 @@ class CardMatching {
         shuffleCards()
     }
     
-    func shuffleCards() {
+    mutating func shuffleCards() {
         var last = cards.count - 1
         
         while(last > 0) {
@@ -60,7 +60,7 @@ class CardMatching {
         }
     }
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             if let matchingIdx = idxOfOneAndOnlyFacedUpCard, matchingIdx > 0 {
                 if cards[matchingIdx].id == cards[index].id {
