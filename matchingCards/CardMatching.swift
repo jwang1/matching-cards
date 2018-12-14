@@ -63,7 +63,7 @@ struct CardMatching {
     mutating func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             if let matchingIdx = idxOfOneAndOnlyFacedUpCard, matchingIdx > 0 {
-                if cards[matchingIdx].id == cards[index].id {
+                if cards[matchingIdx] == cards[index] {
                     cards[matchingIdx].isMatched = true
                     cards[index].isMatched = true
                     
