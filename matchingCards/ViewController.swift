@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     lazy var game = CardMatching(numberOfPairsOfCards: numberOfPairsOfCards)
     
+    var lastChosenCardIdx = -1
+    
     // Property (a read-only property)
     var numberOfPairsOfCards : Int {
         get {
@@ -41,9 +43,17 @@ class ViewController: UIViewController {
         flips += 1
         
         if let cardIdx = cardButtons.index(of: sender) {
-            game.chooseCard(at: cardIdx)
             
-            updateViewFromModel()
+            if (lastChosenCardIdx != cardIdx) {
+                
+                lastChosenCardIdx = cardIdx
+                
+                game.chooseCard(at: cardIdx)
+            
+                updateViewFromModel()
+            } else {
+                print("You already click card at: \(lastChosenCardIdx); please click a different card")
+            }
         } else {
             print("\(sender) not in cardButtons")
         }
