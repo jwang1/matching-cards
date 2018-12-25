@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     
     @IBAction func startNewGame(_ sender: UIButton) {
         game = CardMatching(numberOfPairsOfCards: numberOfPairsOfCards)
-        emojiDict = [Int:String]()
+        emojiDict = [Card:String]()
         
         emojiChoices += emojis
         
@@ -87,18 +87,18 @@ class ViewController: UIViewController {
     }
     
     
-    var emojiDict = [Int:String]()
+    var emojiDict = [Card:String]()
     
     func emoji(for card: Card) -> String {
         
-        if emojiDict[card.hashValue] == nil, emojiChoices.count > 0 {
+        if emojiDict[card] == nil, emojiChoices.count > 0 {
             
             let rand = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emojiDict[card.hashValue] = emojiChoices.remove(at: rand)
+            emojiDict[card] = emojiChoices.remove(at: rand)
         }
         
         // replacing the above
-        return emojiDict[card.hashValue] ?? "?"
+        return emojiDict[card] ?? "?"
     }
     
     
