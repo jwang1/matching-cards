@@ -39,23 +39,8 @@ struct CardMatching {
     // tracking the card when only 1 card is facing up
     var idxOfOneAndOnlyFacedUpCard: Int? {
         get {
-            
             // using trailing-closure, and extension on Collection sequence type
             return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnlyOne()
-
-            
-//            var foundIdx: Int?
-//            for idx in cards.indices {
-//                if cards[idx].isFaceUp {
-//                    if foundIdx == nil {  // no cards up
-//                        foundIdx = idx
-//                    } else {
-//                        return nil // already had a card up, and current card with idx is also up; hence, idxOfOneAndOnlyFacedUpCard will be nil
-//                    }
-//                }
-//            }
-//            return foundIdx
- 
         }
         set {
             for idx in cards.indices {
