@@ -7,3 +7,10 @@ View
 
 emoji array and dictionary (card-idx / emoji)
 
+
+1. Profiling 
+
+1.1  Activity  (see other processes as well)
+
+1.2  Timing (drill down to the methods spending most of time)
+
