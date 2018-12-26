@@ -40,7 +40,7 @@ struct CardMatching {
     var idxOfOneAndOnlyFacedUpCard: Int? {
         get {
             // using trailing-closure, and extension on Collection sequence type
-            return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnlyOne()
+            return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnlyOne
         }
         set {
             for idx in cards.indices {
@@ -72,7 +72,7 @@ struct CardMatching {
  * Add oneAndOnlyOne method to Collection sequence type
  */
 extension Collection {
-    func oneAndOnlyOne() -> Element? {
+    var oneAndOnlyOne: Element? {
         return count == 1 ? first : nil
     }
 }
